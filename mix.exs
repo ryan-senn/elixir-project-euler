@@ -29,9 +29,9 @@ defmodule ElixirProjectEuler.MixProject do
   defp aliases do
     [
       "problem.test": "elixir_project_euler.test_problem",
-      "t": "elixir_project_euler.test_problem",
+      t: "elixir_project_euler.test_problem",
       "problem.benchmark": "elixir_project_euler.benchmark_problem",
-      "bm": "elixir_project_euler.benchmark_problem",
+      bm: "elixir_project_euler.benchmark_problem",
       "problems.generate": "elixir_project_euler.generate_problems"
     ]
   end
