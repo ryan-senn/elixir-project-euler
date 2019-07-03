@@ -13,7 +13,7 @@ It comes with a mix task to check your solutions against the preconfigured corre
 * Run `mix deps.get` to install the dependencies (dependency really, just benchee)
 * Run `mix problems.generate` to generate the boilerplate for each problem.
 * Open `./lib/problem_1.ex` in your favourite code editor.
-* Follow the commented link at the top (eg. https://projecteuler.net/problem=1) to read up on the problem and implement `solution_1`
+* Open `./problems.pdf` (useful if wishing to do these exercises offline) or follow the commented link at the top (eg. https://projecteuler.net/problem=1) to read up on the problem and implement `solution_1`
 * Test your solution with `mix problem.test 1`, where `1` is the problem number. There is a `mix t 1` shorthand that does the same (t for test).
 * If you can't find the correct answer and are stuck, you can use the `--show` flag to display the expected answer.
 * *Optional* Comment in and implement `solution_2`. Running `mix problem.test 1` will detect the new solution and verify both.
