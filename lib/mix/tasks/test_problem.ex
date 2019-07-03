@@ -3,7 +3,9 @@ defmodule Mix.Tasks.ElixirProjectEuler.TestProblem do
   alias Mix.Tasks.ElixirProjectEuler.Util
   alias Mix.Tasks.ElixirProjectEuler.Answers
 
-  def run([problem_number]) do
+  def run(args) do
+    problem_number = Enum.at(args, 0)
+
     IO.puts("Testing problem #{problem_number}")
 
     correct_answer =
@@ -21,11 +23,15 @@ defmodule Mix.Tasks.ElixirProjectEuler.TestProblem do
       if given_answer == correct_answer do
         IO.puts("#{solution} is correct. Well done!")
       else
-        IO.puts(
-          "#{solution} failed. You've given me #{given_answer}, but I am expecting #{
-            correct_answer
-          }!"
-        )
+        if Enum.at(args, 1) == "--show" do
+          IO.puts(
+            "#{solution} failed. You've given me #{given_answer}, but I am expecting #{
+              correct_answer
+            }!"
+          )
+        else
+          IO.puts("#{solution} failed. You've given me #{given_answer}, but it is incorrect! You can use the `--show` flag to display the correct answer.")
+        end
       end
     end)
   end

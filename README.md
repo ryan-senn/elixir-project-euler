@@ -15,7 +15,8 @@ It comes with a mix task to check your solutions against the preconfigured corre
 * Open `./lib/problem_1.ex` in your favourite code editor.
 * Follow the commented link at the top (eg. https://projecteuler.net/problem=1) to read up on the problem and implement `solution_1`
 * Test your solution with `mix problem.test 1`, where `1` is the problem number. There is a `mix t 1` shorthand that does the same (t for test).
-* *Optional* Comment out and implement `solution_2`. Running `mix problem.test 1` will detect the new solution and verify both.
+* If you can't find the correct answer and are stuck, you can use the `--show` flag to display the expected answer.
+* *Optional* Comment in and implement `solution_2`. Running `mix problem.test 1` will detect the new solution and verify both.
 * Run `mix problem.benchmark 1` to see which implementation is more efficient. There is a `mix bm 1` shorthand that does the same (bm for benchmark).
 * *Optional* Implement as many solutions as you want. Make sure to name your solutions `solution_{solution_number}` with no params and repeat the testing and benchmarking steps above.
 * Move to `./lib/problem_2.ex` and repeat the steps above using `mix problem.test 2` etc.
