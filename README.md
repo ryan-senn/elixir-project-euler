@@ -10,6 +10,7 @@ It comes with a mix task to check your solutions against the preconfigured corre
 
 * Clone this repo: `git clone git@github.com:ryan-senn/elixir-project-euler.git`.
 * Navigate to the project with `cd elixir-project-euler`.
+* Run `mix deps.get` to install the dependencies (dependency really, just benchee)
 * Run `mix problems.generate` to generate the boilerplate for each problem.
 * Open `./lib/problem_1.ex` in your favourite code editor.
 * Follow the commented link at the top (eg. https://projecteuler.net/problem=1) to read up on the problem and implement `solution_1`
