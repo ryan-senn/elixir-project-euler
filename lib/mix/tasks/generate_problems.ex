@@ -3,9 +3,7 @@ defmodule Mix.Tasks.ElixirProjectEuler.GenerateProblems do
   alias Mix.Tasks.ElixirProjectEuler.Answers
 
   def run(args) do
-    answers =
-      Answers.list()
-      |> Enum.take(10)
+    answers = Answers.list()
 
     Enum.each(answers, fn {problem_number, _} ->
       filename = "./lib/problem_#{problem_number}.ex"
