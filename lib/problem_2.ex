@@ -61,3 +61,15 @@ defmodule Problem2 do
     end
   end
 end
+
+# Benchmarks
+
+# Name                 ips        average  deviation         median         99th %
+# solution_3        1.68 M      596.63 ns   ±131.73%        1000 ns        1000 ns
+# solution_2        1.34 M      745.77 ns   ±287.22%        1000 ns        1000 ns
+# solution_1      0.0417 M    23964.56 ns    ±41.69%       23000 ns       45000 ns
+
+# Comparison:
+# solution_3        1.68 M
+# solution_2        1.34 M - 1.25x slower +149.14 ns
+# solution_1      0.0417 M - 40.17x slower +23367.93 ns

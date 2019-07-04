@@ -49,3 +49,15 @@ defmodule Problem3 do
 
   defp solve_3(number, factor), do: solve_3(number, factor + 1)
 end
+
+# Benchmarks
+
+# Name                 ips        average  deviation         median         99th %
+# solution_3        8.30 K      120.49 μs     ±9.81%         119 μs         153 μs
+# solution_1        7.91 K      126.39 μs    ±14.07%         120 μs         199 μs
+# solution_2        7.58 K      132.01 μs    ±27.13%         127 μs         197 μs
+
+# Comparison:
+# solution_3        8.30 K
+# solution_1        7.91 K - 1.05x slower +5.90 μs
+# solution_2        7.58 K - 1.10x slower +11.52 μs

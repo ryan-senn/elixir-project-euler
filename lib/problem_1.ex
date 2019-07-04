@@ -34,3 +34,15 @@ defmodule Problem1 do
     acc
   end
 end
+
+# Benchmarks
+
+# Name                 ips        average  deviation         median         99th %
+# solution_3       19.95 K       50.14 μs    ±17.22%          48 μs          79 μs
+# solution_2       15.80 K       63.29 μs    ±15.44%          61 μs         102 μs
+# solution_1       11.25 K       88.92 μs   ±362.35%          82 μs         140 μs
+
+# Comparison:
+# solution_3       19.95 K
+# solution_2       15.80 K - 1.26x slower +13.16 μs
+# solution_1       11.25 K - 1.77x slower +38.79 μs
