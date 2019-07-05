@@ -8,7 +8,7 @@ defmodule Problem4 do
     |> Enum.map(fn {l, r} -> l * r end)
     # add uniq before filtering, comparing ints is faster than running the palindrome check
     |> Enum.uniq()
-    |> Enum.filter(fn n -> is_palindrome?(n) end)
+    |> Enum.filter(fn n -> is_palindrome_string?(n) end)
     |> Enum.max()
   end
 
@@ -22,7 +22,7 @@ defmodule Problem4 do
       Enum.map(@range, fn j -> i * j end) ++ acc
     end)
     |> Enum.uniq()
-    |> Enum.filter(fn n -> is_palindrome?(n) end)
+    |> Enum.filter(fn n -> is_palindrome_string?(n) end)
     |> Enum.max()
   end
 
@@ -33,11 +33,11 @@ defmodule Problem4 do
       Enum.map(@range, fn j -> i * j end) ++ acc
     end)
     |> Enum.reduce(0, fn n, acc ->
-      # we have 2 checks to perform here, n > acc and is_palindrome?(n)
+      # we have 2 checks to perform here, n > acc and is_palindrome_string?(n)
       # we want to use nested ifs here so that we can perform the cheap check first (n > acc)
-      # and avoid calling is_palindrome?(n) in many instances
+      # and avoid calling is_palindrome_string?(n) in many instances
       if n > acc do
-        if is_palindrome?(n) do
+        if is_palindrome_string?(n) do
           n
         else
           acc
@@ -57,21 +57,55 @@ defmodule Problem4 do
         end).()
   end
 
-  defp is_palindrome?(n) do
+  # same as solution 3, but use digits instead of string to check for palindrome
+  def solution_4 do
+    @range
+    |> Enum.reduce([], fn i, acc ->
+      Enum.map(@range, fn j -> i * j end) ++ acc
+    end)
+    |> Enum.reduce(0, fn n, acc ->
+      if n > acc do
+        if is_palindrome_digits?(n) do
+          n
+        else
+          acc
+        end
+      else
+        acc
+      end
+    end)
+    |> (fn n ->
+          if n == 0 do
+            nil
+          else
+            n
+          end
+        end).()
+  end
+
+  defp is_palindrome_string?(n) do
     string = Integer.to_string(n)
 
     string == String.reverse(string)
+  end
+
+  defp is_palindrome_digits?(n) do
+    digits = Integer.digits(n)
+
+    digits == Enum.reverse(digits)
   end
 end
 
 # Benchmarks
 
 # Name                 ips        average  deviation         median         99th %
-# solution_3         12.05       82.96 ms     ±9.38%       80.78 ms      104.94 ms
-# solution_2          1.59      630.01 ms     ±5.80%      634.24 ms      680.38 ms
-# solution_1          0.93     1077.65 ms     ±5.19%     1075.49 ms     1152.74 ms
+# solution_4         13.17       75.91 ms     ±9.84%       74.19 ms      105.86 ms
+# solution_3         11.91       83.95 ms     ±9.53%       81.40 ms      116.90 ms
+# solution_2          1.59      627.52 ms     ±5.06%      630.47 ms      676.80 ms
+# solution_1          0.90     1110.61 ms     ±4.64%     1090.63 ms     1174.08 ms
 
 # Comparison:
-# solution_3         12.05
-# solution_2          1.59 - 7.59x slower +547.05 ms
-# solution_1          0.93 - 12.99x slower +994.70 ms
+# solution_4         13.17
+# solution_3         11.91 - 1.11x slower +8.04 ms
+# solution_2          1.59 - 8.27x slower +551.61 ms
+# solution_1          0.90 - 14.63x slower +1034.69 ms
